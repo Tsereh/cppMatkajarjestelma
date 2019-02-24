@@ -9,9 +9,9 @@ enum Matkatyyppi {HELSINKI, SEUTU};
 
 class Matkakortti
 {
+string *omistajanNimi;
+float *saldo;
 private:
-	string omistajanNimi;
-	float saldo;
 	void tarkistaMatka(float hinta);
 
 public:

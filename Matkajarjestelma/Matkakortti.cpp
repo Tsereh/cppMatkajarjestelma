@@ -9,27 +9,29 @@ Matkakortti::Matkakortti()
 
 Matkakortti::~Matkakortti()
 {
+	delete omistajanNimi;
+	delete saldo;
 }
 
 void Matkakortti::alusta(string nimi, float s)
 {
-	omistajanNimi = nimi;
-	saldo = s;
+	this->omistajanNimi = new string(nimi);
+	this->saldo = new float(s);
 }
 
 void Matkakortti::lataaSaldo(float s)
 {
-	saldo = saldo + s;
-	cout << "Saldoa ladattu. Saldo: " << std::to_string(saldo);
+	*saldo = *saldo + s;
+	cout << "Saldoa ladattu. Saldo: " << std::to_string(*saldo);
 }
 
 void Matkakortti::tarkistaMatka(float hinta) {
-	if (saldo >= hinta) {
-		saldo = saldo - hinta;
-		cout << "Hyvää matkaa! Saldoa jäljellä: " << std::to_string(saldo);
+	if (*saldo >= hinta) {
+		*saldo = *saldo - hinta;
+		cout << "Hyvää matkaa! Saldoa jäljellä: " << std::to_string(*saldo);
 	}
 	else {
-		cout << "Saldo ei riitä. Saldo: " << std::to_string(saldo);
+		cout << "Saldo ei riitä. Saldo: " << std::to_string(*saldo);
 	}
 }
 
@@ -47,14 +49,14 @@ void Matkakortti::matkusta(enum Matkatyyppi tyyppi)
 
 string &Matkakortti::palautaNimi()
 {
-	return omistajanNimi;
+	return *omistajanNimi;
 }
 
 float Matkakortti::palautaSaldo()
 {
-	return saldo;
+	return *saldo;
 }
 
 void Matkakortti::tulostaTiedot() {
-	cout << "Omistaja: " << omistajanNimi << ", Saldo: " << std::to_string(saldo);
+	cout << "Omistaja: " << *omistajanNimi << ", Saldo: " << std::to_string(*saldo);
 }
