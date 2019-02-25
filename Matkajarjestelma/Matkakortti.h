@@ -1,5 +1,6 @@
 #pragma once
 #include "stdafx.h"
+#include <memory>
 #define HELSINKIHINTA 3.0 // vaihtoehto 2: const float HELSINKIHINTA = 3.0; // C++:n nimetty vakio
 #define SEUTUHINTA 4.8
 
@@ -9,8 +10,8 @@ enum Matkatyyppi {HELSINKI, SEUTU};
 
 class Matkakortti
 {
-string *omistajanNimi;
-float *saldo;
+std::unique_ptr<string> omistajanNimi;
+std::unique_ptr<float> saldo;
 private:
 	void tarkistaMatka(float hinta);
 
