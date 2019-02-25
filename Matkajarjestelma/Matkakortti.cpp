@@ -39,10 +39,10 @@ void Matkakortti::matkusta(enum Matkatyyppi tyyppi)
 {
 	switch (tyyppi) {
 		case HELSINKI:
-			tarkistaMatka(1.10);
+			tarkistaMatka(HELSINKIHINTA);
 			break;
 		case SEUTU:
-			tarkistaMatka(2.20);
+			tarkistaMatka(SEUTUHINTA);
 			break;
 	}
 }
