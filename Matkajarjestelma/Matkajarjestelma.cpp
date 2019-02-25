@@ -2,6 +2,7 @@
 //
 
 #include "stdafx.h"
+#include <memory>
 
 
 using namespace std;
@@ -11,7 +12,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	int v;
 	string rivi;
 	float raha;
-	Matkakortti kortti;
+	std::unique_ptr<Matkakortti> kortti(new Matkakortti());
 	do
 	{
 		system("cls");
@@ -33,27 +34,27 @@ int _tmain(int argc, _TCHAR* argv[])
 				getline(cin, rivi);
 				cout << "Anna kortin aloitus saldo: ";
 				raha = getFloatFromStream();
-				kortti.alusta(rivi, raha);
+				kortti->alusta(rivi, raha);
 			break;
 			case 2:
 				gotoxy(30, 14);
 				cout << "Anna lisättävä saldo: ";
 				raha = getFloatFromStream();
-				kortti.lataaSaldo(raha);
+				kortti->lataaSaldo(raha);
 				cin.get();
 			break;
 			case 3:
 				gotoxy(25, 14);
-				kortti.matkusta(HELSINKI);
+				kortti->matkusta(HELSINKI);
 				cin.get();
 				break;
 			case 4:       //
 				gotoxy(25, 14);
-				kortti.matkusta(SEUTU);
+				kortti->matkusta(SEUTU);
 				cin.get();
 			break;
 			case 5:       //
-				kortti.tulostaTiedot();
+				kortti->tulostaTiedot();
 				cin.get();
 			case 6:       //
 
@@ -63,6 +64,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 	}
 	while (v!=6);
+
+	kortti.reset();
+
 	return 0;
 }
 
