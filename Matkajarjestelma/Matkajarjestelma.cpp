@@ -7,12 +7,14 @@
 
 using namespace std;
 
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	int v;
 	string rivi;
 	float raha;
-	std::unique_ptr<Matkakortti> kortti(new Matkakortti());
+	std::unique_ptr<Matkakortti> kortti{ new Matkakortti() };
+	Leimaaja leimaaja = Leimaaja();
 	do
 	{
 		system("cls");
@@ -23,7 +25,8 @@ int _tmain(int argc, _TCHAR* argv[])
 		cout << "\t\t\t\tMatkusta Helsingissä 3.\n";
 		cout << "\t\t\t\tMatkusta seudulla 4.\n";
 		cout << "\t\t\t\tTulosta kortin tiedot 5.\n";
-		cout << "\t\t\t\tLopeta 6.\n";
+		cout << "\t\t\t\tTulosta leimaajan historia 6.\n";
+		cout << "\t\t\t\tLopeta 7.\n";
 		gotoxy(43,12);
 		v=getIntFromStream();
 		switch (v)
@@ -45,25 +48,31 @@ int _tmain(int argc, _TCHAR* argv[])
 			break;
 			case 3:
 				gotoxy(25, 14);
-				kortti->matkusta(HELSINKI);
+				leimaaja.leimaa(kortti.get, HELSINKI);
 				cin.get();
 				break;
 			case 4:       //
 				gotoxy(25, 14);
-				kortti->matkusta(SEUTU);
+				leimaaja.leimaa(kortti.get, SEUTU);
+//				kortti->matkusta(SEUTU);
 				cin.get();
 			break;
 			case 5:       //
-				kortti->tulostaTiedot();
+				kortti.get.tulostaTiedot();
 				cin.get();
+			break;
 			case 6:       //
+				leimaaja.tulostaLeimaukset();
+				cin.get();
+				break;
+			case 7:       //
 
 //				cin.get();
 			break;
 						
 		}
 	}
-	while (v!=6);
+	while (v!=7);
 
 	kortti.reset();
 

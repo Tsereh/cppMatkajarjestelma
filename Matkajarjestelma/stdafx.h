@@ -18,6 +18,8 @@
 #include "IOHelper.h"
 #include "gotoxy.h"
 #include "Matkakortti.h"
+#include "Leimaaja.h"
+#include "Leimaus.h"
 
 
 // TODO: reference additional headers your program requires here

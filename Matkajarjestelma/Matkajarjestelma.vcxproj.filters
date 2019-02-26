@@ -33,6 +33,12 @@
     <ClInclude Include="Matkakortti.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Leimaaja.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Leimaus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -48,6 +54,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Matkakortti.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Leimaaja.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Leimaus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

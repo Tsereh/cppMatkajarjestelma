@@ -23,25 +23,27 @@ void Matkakortti::lataaSaldo(float s)
 	cout << "Saldoa ladattu. Saldo: " << std::to_string(*saldo);
 }
 
-void Matkakortti::tarkistaMatka(float hinta) {
+bool Matkakortti::tarkistaMatka(float hinta) {
 	if (*saldo >= hinta) {
 		saldo.reset(new float(*saldo - hinta));
 		cout << "Hyvää matkaa! Saldoa jäljellä: " << std::to_string(*saldo);
+		return true;
 	}
 	else {
 		cout << "Saldo ei riitä. Saldo: " << std::to_string(*saldo);
+		return false;
 	}
 }
 
-void Matkakortti::matkusta(enum Matkatyyppi tyyppi)
+bool Matkakortti::matkusta(enum Matkatyyppi tyyppi)
 {
 	switch (tyyppi) {
 		case HELSINKI:
-			tarkistaMatka(HELSINKIHINTA);
-			break;
+			return tarkistaMatka(HELSINKIHINTA);
+//			break;
 		case SEUTU:
-			tarkistaMatka(SEUTUHINTA);
-			break;
+			return tarkistaMatka(SEUTUHINTA);
+//			break;
 	}
 }
 

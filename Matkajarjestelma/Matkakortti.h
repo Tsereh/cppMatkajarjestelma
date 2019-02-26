@@ -13,13 +13,13 @@ class Matkakortti
 std::unique_ptr<string> omistajanNimi;
 std::unique_ptr<float> saldo;
 private:
-	void tarkistaMatka(float hinta);
+	bool tarkistaMatka(float hinta);
 
 public:
 	Matkakortti();
 	void alusta(string nimi, float s);
 	void lataaSaldo(float s);
-	void matkusta(enum Matkatyyppi tyyppi);
+	bool matkusta(enum Matkatyyppi tyyppi);
 	void tulostaTiedot(); // ongelma: matkakortti ei suoraan saisi tulostaa kl:‰‰n
 	string &palautaNimi();
 	float palautaSaldo();
