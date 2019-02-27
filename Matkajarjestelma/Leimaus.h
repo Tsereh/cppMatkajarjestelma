@@ -7,8 +7,8 @@
 class Leimaus
 {
 private:
-	std::unique_ptr<string> leimaajanNimi;
-	std::unique_ptr<std::time_t> leimausAika;
+	string leimaajanNimi;
+	std::time_t leimausAika;
 public:
 	Leimaus();
 	Leimaus(string nimi);
