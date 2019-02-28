@@ -13,7 +13,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	int v;
 	string rivi;
 	float raha;
-	std::unique_ptr<Matkakortti> kortti(new Matkakortti());
+	std::unique_ptr<Matkakortti> kortti = std::make_unique<Matkakortti>();
 	Leimaaja leimaaja = Leimaaja();
 	do
 	{
@@ -48,7 +48,8 @@ int _tmain(int argc, _TCHAR* argv[])
 			break;
 			case 3:
 				gotoxy(25, 14);
-				leimaaja.leimaa(*kortti, HELSINKI);
+//				leimaaja.leimaa(*kortti, HELSINKI);
+				leimaaja << *kortti;
 				cin.get();
 				break;
 			case 4:       //

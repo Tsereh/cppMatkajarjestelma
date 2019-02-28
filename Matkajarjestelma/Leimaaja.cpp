@@ -5,6 +5,7 @@ Leimaaja::Leimaaja()
 {
 	cout << "Syötä linjan numero: ";
 	linjaNro = getIntFromStream();
+	leimaajaNimet = std::deque<string>();
 }
 
 void Leimaaja::leimaa(Matkakortti& kortti, Matkatyyppi matkatyyppi) {
@@ -28,6 +29,11 @@ void Leimaaja::leimaa(Matkakortti& kortti, Matkatyyppi matkatyyppi) {
 	}
 }
 
+Leimaaja &Leimaaja::operator<<(Matkakortti& kortti) {
+	leimaa(kortti, HELSINKI);
+	return *this;
+}
+
 void Leimaaja::tulostaLeimaukset() {
 	cout << "Linjan " << std::to_string(linjaNro) << " viimeiset " << leimausAjat.size() << " leimausta:\n";
 	for (int i = 0; i < leimaajaNimet.size(); i++) {
@@ -40,3 +46,5 @@ void Leimaaja::tulostaLeimaukset() {
 Leimaaja::~Leimaaja()
 {
 }
+
+

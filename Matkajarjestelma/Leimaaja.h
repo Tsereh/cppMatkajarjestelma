@@ -18,5 +18,6 @@ public:
 	void leimaa(Matkakortti& kortti, Matkatyyppi tyyppi);
 	void tulostaLeimaukset();
 	~Leimaaja();
+	Leimaaja &operator<<(Matkakortti& kortti);
 };
 
