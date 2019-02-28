@@ -7,6 +7,24 @@
 
 using namespace std;
 
+std::ostream& operator<<(std::ostream& stream, const Leimaaja& leimaaja)
+{
+	stream << "Linjan " << std::to_string(leimaaja.linjaNro) << " viimeiset " << leimaaja.leimausAjat.size() << " leimausta:\n";
+	for (int i = 0; i < leimaaja.leimaajaNimet.size(); i++) {
+		stream << leimaaja.leimaajaNimet[i] << " : " << leimaaja.leimausAjat[i] << "\n";
+	}
+	stream << '\n';
+	return stream;
+}
+
+std::ostream& operator<<(std::ostream& stream, Matkakortti& kortti)
+{
+	stream << "Omistaja: " << kortti.palautaNimi() << ", Saldo: " << std::to_string(kortti.palautaSaldo());
+	stream << "\n";
+	return stream;
+}
+
+
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -59,11 +77,13 @@ int _tmain(int argc, _TCHAR* argv[])
 				cin.get();
 			break;
 			case 5:       //
-				kortti->tulostaTiedot();
+//				kortti->tulostaTiedot();
+				cout << *kortti;
 				cin.get();
 			break;
 			case 6:       //
-				leimaaja.tulostaLeimaukset();
+//				leimaaja.tulostaLeimaukset();
+				cout << leimaaja;
 				cin.get();
 				break;
 			case 7:       //

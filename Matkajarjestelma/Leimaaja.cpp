@@ -34,6 +34,7 @@ Leimaaja &Leimaaja::operator<<(Matkakortti& kortti) {
 	return *this;
 }
 
+
 void Leimaaja::tulostaLeimaukset() {
 	cout << "Linjan " << std::to_string(linjaNro) << " viimeiset " << leimausAjat.size() << " leimausta:\n";
 	for (int i = 0; i < leimaajaNimet.size(); i++) {

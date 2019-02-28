@@ -10,10 +10,10 @@
 class Leimaaja
 {
 private:
+public:
 	std::deque<string> leimaajaNimet;
 	std::deque<string> leimausAjat;
 	int linjaNro;
-public:
 	Leimaaja();
 	void leimaa(Matkakortti& kortti, Matkatyyppi tyyppi);
 	void tulostaLeimaukset();
